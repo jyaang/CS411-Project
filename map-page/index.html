@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0", user-scalable="no">
     <meta charset="utf-8">
-    <title>Places Searchbox</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <title>Map Page</title>
     <style>
       html, body {
         height: 100%;
@@ -60,7 +63,15 @@
     </style>
   </head>
   <body>
-    <p> Welcome to iPark!</p>
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a href="../">Home</a></li>
+          <li class="active"><a href="../map-page/">Map</a></li>
+        </ul>
+      </div>
+    </div>
+    
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
     <script>
