@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta name="viewport" content="initial-scale=1.0", user-scalable="no">
     <meta charset="utf-8">
@@ -9,6 +9,8 @@
     <title>Map Page</title>
     <script type = "text/javascript"
         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
     <style>
       html, body {
         height: 100%;
@@ -65,12 +67,13 @@
     </style>
     
   </head>
-  <body>
+  <body ng-app="cs411">
     <div class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <ul class="nav navbar-nav">
           <li><a href="../">Home</a></li>
-          <li class="active"><a href="../map-page/">Map</a></li>
+          <li class="active"><a href="../map-page copy/">Map</a></li>
+          <li><a href="../Sign-in/add_user.html">Sign in</a></li>
         </ul>
       </div>
     </div>
@@ -78,7 +81,6 @@
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
     <script>
-      
       function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {   center: {lat: -33.8688, lng: 151.2195},
           zoom: 8,
@@ -99,7 +101,7 @@
         // Listen for the event fired when the user selects a prediction // and retrieve more details for that place.
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
-          
+  
           if (places.length == 0) {
             return;
           }
@@ -136,46 +138,20 @@
               bounds.extend(place.geometry.location);
             }
           });
+
           map.fitBounds(bounds);
-        });
-      }
-                 
-      jQuery.get('python_file.py', function(data) {
-        for (var i in data) {
-          var lat = data[i][0];
-          var lng = data[i][1];
-          
-          var latlng = new google.maps.LatLng(lat, lng);
-          
-          createMarker(latlng)
-        }
-      })
-      
-      function createMarker(latlng) {
-        var marker = new google.maps.Marker({
-          map: map,
-          position: latlng
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-          infoWindow.open(map, marker);
-        });
-        markers.push(marker);
-      }
-      
-      function clearLocations() {
-        infoWindow.close();
-        for (var i = 0; i < markers.length; i++) {
-          markers[i].setMap(null);
-        }
-        markers.length = 0;
+        }); 
         
-        locationSelect.innerHTML = "";
-        var option = document.createElement("option");
-        option.value = "none";
-        option.innerHTML = "See all results:";
-        locationSelect.appendChild(option);
-        locationSelect.style.visibility = "visible";
+        // Create markers for an array of long, lat points.
+        var myLatLng = [["42.347", "-71.106"], ["42.351", "-71.104"]];
+        for(var i = 0; i < myLatLng.length; i++){
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(myLatLng[i][0], myLatLng[i][1]),
+            map: map,
+          });
+        }
       }
+      
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLLLM6OcWGw3oo_3arza8HO3Z74bI0sfg&libraries=places&callback=initAutocomplete"
           async defer>
