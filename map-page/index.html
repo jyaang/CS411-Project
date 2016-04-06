@@ -138,28 +138,8 @@
           });
           map.fitBounds(bounds);
         });
-      }
-                 
-      jQuery.get('python_file.py', function(data) {
-        for (var i in data) {
-          var lat = data[i][0];
-          var lng = data[i][1];
-          
-          var latlng = new google.maps.LatLng(lat, lng);
-          
-          createMarker(latlng)
-        }
-      })
       
-      function createMarker(latlng) {
-        var marker = new google.maps.Marker({
-          map: map,
-          position: latlng
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-          infoWindow.open(map, marker);
-        });
-        markers.push(marker);
+        // put loop function here 
       }
       
       function clearLocations() {
