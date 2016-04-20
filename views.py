@@ -1,11 +1,11 @@
 from app import app, db 
 from flask import Flask, render_template, request, redirect, url_for, jsonify, abort
-from flask_sqlalchemy import SQLAlchemy 
+#from flask_sqlalchemy import SQLAlchemy 
 #from sqlalchemy import text, create_engine 
 import googlemaps
-import json
+#import json
 from datetime import datetime
-from flask_googlemaps import GoogleMaps
+#from flask_googlemaps import GoogleMaps
 
 gmaps = googlemaps.Client(key='AIzaSyDyIjazEKwGObz96R856yDFMuNJJXXPzyU') 
 
@@ -68,14 +68,17 @@ def post_user():
 @app.route('/get_spaces', methods=['GET', 'POST'])
 def get_spaces(): 
 	place = request.form['address'] 
-	result = Spaces.query.all() 
-	spaces = []
-	for s in result: 
-		spaces.append(s.address)
-	#address = ["223 Adams street, Boston", "37 Buswell street, Boston","22 cummington mall, Boston","232 bay state road, Boston","975 Gaffney road, Boston","2 bay state Road, Boston"]
-	locations = setLocation(place, spaces)
-	return render_template('test.html', locations=locations)
+	#result = Spaces.query.all() 
+	#spaces = []
+	#for s in result: 
+		#spaces.append(s.address)
+	address = ["223 Adams street, Boston", "37 Buswell street, Boston","22 cummington mall, Boston","232 bay state road, Boston","975 Gaffney road, Boston","2 bay state Road, Boston"]
+	locations = setLocation(place, address)
+	return render_template('mapMarkers.html', locations=locations)
 
+@app.route('/rent')
+def rent():
+	return render_template('rent.html')
 
     #CREATE_ENGINE 
 	# sql = text('select address from Spaces where is_taken = false')
