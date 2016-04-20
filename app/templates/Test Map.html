@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width", user-scalable="no", content="initial-scale=0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <title>Test Map</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 75%;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <h1 class="title text-center">M A P</h1>
+    
+    <div class="container">      
+      <form method="post" action="/map-page copy">
+        <input type="text" name="firstName"/><br>
+        <input type="submit" value="Search"/><br/>
+      </form>
+      </div>
+    
+      <div id="map"></div>
+      <script>   
+        function initMap() {
+          var myLatLng = {lat: -34.397, lng: 150.644};
+          
+          // Create a map object and specify the DOM element for display.
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 10
+          });
+          
+          // Create a marker and set its position.
+          var marker = new google.maps.Marker({
+            map: map,
+            position: myLatLng,
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3h89hIO4VR6DGrAmy-d3Co0nmgpH3L6s&callback=initMap" async defer></script>
+    
+      <p class="text-center">Thanks for stopping by.</p>
+
+    
+  </body>
+</html>

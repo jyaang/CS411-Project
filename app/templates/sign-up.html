@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Sign In Page</title>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width", user-scalable="no", content="initial-scale=0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/login_signup.css">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a href="./">Home</a></li>
+          <li><a href="map.html">Map</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <h1 class="title text-center">Sign in/ Sign up</h1>
+    
+    <div class="container">
+      <form method="post" action="/post_user">
+        First Name: <input type="text" name="firstName"/><br>
+        Last Name: <input type="text" name="lastName"/><br>
+        Username: <input type="text" name="username"/><br> 
+        Email: <input type="text" name="email"/><br>
+        Password: <input type="password" name="password" placeholder="at least 6 characters"/><br>
+        Role: <input type="radio" name="role" value="Renter">Renter <input type="radio" name="role" value="Space Owner">Space Owner<br>
+        <input type="submit" value="Create"/><br/>
+      </form>
+    </div>
+  </body>
+</html> 
