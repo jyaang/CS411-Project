@@ -1,0 +1,72 @@
+
+body {
+	background-image: url("../images/city.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    background-color: black;
+    
+    background-attachment: fixed;
+}
+
+.heading_padding {
+  margin-top: 165px;
+}
+
+.search_padding {
+  margin-top: 30px;
+}
+
+.hiw_padding {
+  margin-top: 300px;
+}
+
+.hiw_background {
+  background-color: black;
+}
+
+h1 {
+	color: white;
+    font-size: 400%;
+}
+
+h3 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+h5 {
+  color: white;
+  font-size: 150%;
+}
+
+h6 {
+  color: white;
+  padding-bottom: 100%;
+}
+
+p {
+  color: white;
+  font-size: 150%;
+}
+
+a {
+  color: white;
+}
+div.transparent_box {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60)
+}
+
+hr {
+  border: none;
+  height: 4px;
+  color: white;
+  background-color: white;
+}
